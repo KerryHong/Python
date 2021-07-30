@@ -1,0 +1,20 @@
+from collections import defaultdict
+def solution(A):
+    n= len(A)
+    right_dict=defaultdict(lambda:0)
+    left_dict=defaultdict(lambda:0)
+    
+    for i in range(n):
+        right_dict[A[i]]+=1
+    
+    E_leader=0
+    candidate=A[0]
+    for i in range(n):
+        right_dict[A[i]] -= 1
+        left_dict[A[i]] +=1
+        
+        if i == 0 or left_dict[candidate]<left_dict[A[i]]:
+            candidate=A[i]
+        if (i+1)//2 < left_dict[candidate] and (n-(i+1))//2 < right_dict[candidate]:
+            E_leader+=1
+    return E_leader
