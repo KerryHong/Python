@@ -1,0 +1,10 @@
+from extratypes import Tree  # library with types used in the task
+
+
+def getHeight(sub_T):
+    if sub_T == None:
+        return 0
+    return max(getHeight(sub_T.l), getHeight(sub_T.r))+1
+ 
+def solution(T):
+    return max(getHeight(T.l), getHeight(T.r))
