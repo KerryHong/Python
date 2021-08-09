@@ -1,0 +1,15 @@
+def solution(lottos, win_nums):
+    answer = []
+    nune=0
+    current=0
+    rank=[6,6,5,4,3,2,1]
+
+    for i in lottos:
+        if i in win_nums:
+            current+=1
+        if i == 0:
+            nune+=1
+    higher= current+nune
+    lower=current
+ 
+    return rank[higher],rank[lower]
