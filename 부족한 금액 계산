@@ -1,0 +1,11 @@
+def solution(price, money, count):
+    new_price = 0
+    for i in range(1,count+1):
+        new_price += price*i
+    if new_price >= money:
+        answer = new_price -money
+    else:
+        answer = 0
+
+
+    return answer
